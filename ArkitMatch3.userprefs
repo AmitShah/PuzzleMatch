@@ -1,0 +1,29 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RectangleSystem.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Board.cs" Line="48" Column="3" />
+      <File FileName="Assets/Scripts/Block.cs" Line="24" Column="1" />
+      <File FileName="Assets/Scripts/Game.cs" Line="11" Column="25" />
+      <File FileName="Assets/Scripts/RectangleSystem.cs" Line="489" Column="4" />
+      <File FileName="Assets/Scripts/RectangleAlgorithm.cs" Line="302" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="88" column="22" />
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="69" column="1" />
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="397" column="1" />
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="397" column="1" />
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="397" column="1" />
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="69" column="1" />
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="397" column="1" />
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="258" column="1" />
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="88" column="1" />
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="135" column="1" />
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="395" column="22" />
+      <Breakpoint file="/Users/amitshah/unity/ArkitMatch3/Assets/Scripts/RectangleSystem.cs" line="456" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
