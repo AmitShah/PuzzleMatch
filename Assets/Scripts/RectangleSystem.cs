@@ -83,7 +83,13 @@ public class RectangleSystem : MonoBehaviour
 		A [7] = new int[]   { 0, 0, 1, 1, 1, 0 };
 		A [8] = new int[]	{ 0, 0, 1, 1, 1, 0 };
 		maxRectangle (A);
+		foreach (Rect b in buffer) {
+			foreach (Rect r in rectangles) {
+				b.Enclose (r);
+			}
+		}
 		rectangles = buffer;
+
 		rectangles.RemoveAt (0);
 		buffer = new List<Rect> ();
 		A [0] = new int[]{ 0, 0, 0, 0, 0, 0 };//,
@@ -96,6 +102,11 @@ public class RectangleSystem : MonoBehaviour
 		A [7] = new int[]   { 0, 0, 1, 1, 1, 1 };
 		A [8] = new int[]	{ 0, 0, 1, 1, 1, 1 };
 		maxRectangle (A);
+		foreach (Rect b in buffer) {
+			foreach (Rect r in rectangles) {
+				b.Enclose (r);
+			}
+		}
 		buffer = new List<Rect>();
 
 //		for (int i = 0; i < 10; i++) {
@@ -491,22 +502,47 @@ public static class RectangleSystemExtensionMethods{
 
 
 
-
+	/// <summary>
+	/// if b fully encloses a we return 16
+	/// if b intersects a we return 15-1
+	/// if b is mutex from a we return 0 
+	/// </summary>
+	/// <param name="b">The blue component.</param>
+	/// <param name="a">The alpha component.</param>
 	public static int Enclose(this Rect b, Rect a){
 		//condition?true:false;
-		var left = b.xMin <= a.xMin && a.xMin <= b.xMax? 1:0;
-		var right = b.xMin <= a.xMax && a.xMax <= b.xMax ? 1:0;
-		var top = b.yMin <= a.yMin && a.yMin <= b.yMax? 1:0;
-		var bottom = b.yMin <= a.yMax && a.yMax <= b.yMax? 1:0;
+		var left = b.xMin <= a.xMin && a.xMin <= b.xMax-1? true:false;
+		var right = b.xMin <= a.xMax-1 && a.xMax-1 <= b.xMax-1 ? true:false;
+		var top = b.yMin <= a.yMin && a.yMin <= b.yMax-1? true:false;
+		var bottom = b.yMin <= a.yMax-1 && a.yMax-1 <= b.yMax-1? true:false;
+
+
+		bool intersect = right && !top && bottom || 
+			left && top && !bottom || 
+			left && !right && bottom || 
+			!left && right && top;
+
+//		intersect = (left || right) && (top && bottom) ||
+//			(top || bottom) && (left && right) ||
+//			(left && top) || (left && bottom) || (right && top) || 
+//			(right && bottom);
+		
+
+		bool encloses = left && right && top && bottom;
+
+		bool mutex = !intersect && !encloses;
+
+		Debug.Log (string.Format ("{3} intersect:{0}, enclose:{1}, mutex:{2} {4}", 
+			intersect, encloses, mutex,RectToString(b), RectToString(a)));
 
 		var result = 0;
-		result|= left;
-		result<<=1;
-		result |=right;
-		result<<=1;
-		result |= top;
-		result<<=1;
-		result |= bottom;
+//		result|= left;
+//		result<<=1;
+//		result |=right;
+//		result<<=1;
+//		result |= top;
+//		result<<=1;
+//		result |= bottom;
 
 	
 		return result;
@@ -551,5 +587,10 @@ public static class RectangleSystemExtensionMethods{
 
 	public static float Area(this Rect r){
 		return (r.width * r.height);
+	}
+
+	public static string RectToString(Rect r){
+		return string.Format ("({0},{1}), ({2},{3})", r.xMin, r.yMin, r.xMax-1, r.yMax-1);
+
 	}
 }
